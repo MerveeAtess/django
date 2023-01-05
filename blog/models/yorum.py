@@ -4,8 +4,9 @@ from blog.models import YaziModel
 
 class YorumModel(models.Model):
     yazan= models.ForeignKey(User, on_delete=models.CASCADE,related_name="yorum")
+    #yazan silinince tamamen silinsin :models.CASCADE
     yazi=models.ForeignKey(YaziModel,on_delete=models.CASCADE,related_name="yorumlar")
-    #yazının yorumlarına ulaşmak için ters ilişki kurduk
+    #yazının yorumlarına ulaşmak için ters ilişki kurduk:related_name
     yorum=models.TextField()
     olusumtarih=models.DateTimeField(auto_now_add=True)
     guncellemetarihi=models.DateTimeField(auto_now=True)
